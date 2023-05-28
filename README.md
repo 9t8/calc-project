@@ -5,5 +5,9 @@ Development server: `npm run dev`
 Deploy to GitHub Pages:
 
 1. uncomment line 4 of `next.config.js` ( `distDir: "docs",` )
-2. `npm run build`
+2. ```bash
+   npm run build
+   touch docs/.nojekyll
+   ```
+
 3. recomment line 4 of `next.config.js`
