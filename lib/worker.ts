@@ -20,37 +20,30 @@ const orthoDct = (inverse: boolean, row: NdArray) => {
 
   const x = range.map((i) => row.get(i) - 128);
 
-  range.forEach((k) => {
-    if (inverse) {
-      row.set(
-        k,
-        clamp(
-          range.reduce(
-            (currSum, n) =>
-              currSum +
-              x[n]! *
-                C(n) *
-                Math.SQRT2 *
-                Math.cos((Math.PI / N) * (k + 0.5) * n),
-            0
-          ) + 128
-        )
-      );
-    } else {
-      row.set(
-        k,
-        clamp(
-          range.reduce(
-            (currSum, n) =>
-              currSum + x[n]! * Math.cos((Math.PI / N) * (n + 0.5) * k),
-            0
-          ) *
-            ((C(k) * Math.SQRT2) / N) +
-            128
-        )
-      );
-    }
-  });
+  range.forEach((k) =>
+    row.set(
+      k,
+      clamp(
+        128 +
+          (inverse
+            ? range.reduce(
+                (currSum, n) =>
+                  currSum +
+                  x[n]! *
+                    C(n) *
+                    Math.SQRT2 *
+                    Math.cos((Math.PI / N) * (k + 0.5) * n),
+                0
+              )
+            : range.reduce(
+                (currSum, n) =>
+                  currSum + x[n]! * Math.cos((Math.PI / N) * (n + 0.5) * k),
+                0
+              ) *
+              ((C(k) * Math.SQRT2) / N))
+      )
+    )
+  );
 };
 
 const F = (inverse: boolean, chunk: NdArray) => {
