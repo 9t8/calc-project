@@ -67,54 +67,46 @@ const F = (inverse: boolean, chunk: NdArray) => {
   const f = range.map((x) => range.map((y) => chunk.get(x, y) - 128));
 
   range.forEach((u) =>
-    range.forEach((v) => {
-      if (inverse) {
-        chunk.set(
-          u,
-          v,
-          clamp(
-            range.reduce(
-              (currSum, x) =>
-                currSum +
-                range.reduce(
-                  (colSum, y) =>
-                    colSum +
-                    2 *
-                      C(x) *
-                      C(y) *
+    range.forEach((v) =>
+      chunk.set(
+        u,
+        v,
+        clamp(
+          inverse
+            ? range.reduce(
+                (currSum, x) =>
+                  currSum +
+                  range.reduce(
+                    (colSum, y) =>
+                      colSum +
+                      2 *
+                        C(x) *
+                        C(y) *
+                        f[x]![y]! *
+                        Math.cos(((u + 0.5) * x * Math.PI) / 8) *
+                        Math.cos(((v + 0.5) * y * Math.PI) / 8),
+                    0
+                  ),
+                0
+              ) + 128
+            : range.reduce(
+                (currSum, x) =>
+                  currSum +
+                  range.reduce(
+                    (colSum, y) =>
+                      colSum +
                       f[x]![y]! *
-                      Math.cos(((u + 0.5) * x * Math.PI) / 8) *
-                      Math.cos(((v + 0.5) * y * Math.PI) / 8),
-                  0
-                ),
-              0
-            ) + 128
-          )
-        );
-      } else {
-        chunk.set(
-          u,
-          v,
-          clamp(
-            range.reduce(
-              (currSum, x) =>
-                currSum +
-                range.reduce(
-                  (colSum, y) =>
-                    colSum +
-                    f[x]![y]! *
-                      Math.cos(((x + 0.5) * u * Math.PI) / 8) *
-                      Math.cos(((y + 0.5) * v * Math.PI) / 8),
-                  0
-                ),
-              0
-            ) *
-              ((C(u) * C(v)) / 32) +
-              128
-          )
-        );
-      }
-    })
+                        Math.cos(((x + 0.5) * u * Math.PI) / 8) *
+                        Math.cos(((y + 0.5) * v * Math.PI) / 8),
+                    0
+                  ),
+                0
+              ) *
+                ((C(u) * C(v)) / 32) +
+                128
+        )
+      )
+    )
   );
 };
 
