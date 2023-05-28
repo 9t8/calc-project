@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import { MuiFileInput } from "mui-file-input";
 import Image from "mui-image";
-import { Avatar, Button } from "@mui/material";
 
 import worker from "@/lib/worker";
 
@@ -52,8 +51,17 @@ const Interface = () => {
         />
       </div>
       <br />
+      <div>
+        <button onClick={loadExample("black.png")}>8x8 Black</button>{" "}
+        <button onClick={loadExample("white.png")}>8x8 White</button>{" "}
+        <button onClick={loadExample("earth.png")}>512x256 Colored</button>{" "}
+        <button onClick={loadExample("soldiers.png")}>
+          1024x1024 Grayscale
+        </button>
+      </div>
       {img ? (
         <>
+          <br />
           <Image
             src={URL.createObjectURL(img)}
             alt="input preview"
@@ -61,13 +69,9 @@ const Interface = () => {
           />
           <br />
           <div>
-            <Button
-              variant="contained"
-              onClick={handleClick}
-              disabled={loading}
-            >
+            <button onClick={handleClick} disabled={loading}>
               Do Stuff
-            </Button>
+            </button>
           </div>
           {out ? (
             <>
@@ -82,38 +86,7 @@ const Interface = () => {
             </>
           ) : null}
         </>
-      ) : (
-        <>
-          <Button
-            variant="contained"
-            startIcon={<Avatar src="black.png" />}
-            onClick={loadExample("black.png")}
-          >
-            8x8 Black
-          </Button>{" "}
-          <Button
-            variant="contained"
-            startIcon={<Avatar src="white.png" />}
-            onClick={loadExample("white.png")}
-          >
-            8x8 White
-          </Button>{" "}
-          <Button
-            variant="contained"
-            startIcon={<Avatar src="earth.png" />}
-            onClick={loadExample("earth.png")}
-          >
-            Medium Colored
-          </Button>{" "}
-          <Button
-            variant="contained"
-            startIcon={<Avatar src="soldiers.png" />}
-            onClick={loadExample("soldiers.png")}
-          >
-            Large Grayscale
-          </Button>
-        </>
-      )}
+      ) : null}
     </>
   );
 };
