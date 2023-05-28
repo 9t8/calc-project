@@ -11,5 +11,3 @@ Deploy to GitHub Pages:
    ```
 
 3. recomment line 4 of `next.config.js`
-
-unrelated change
