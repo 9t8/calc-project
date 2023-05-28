@@ -16,7 +16,7 @@ const orthoDct = (inverse: boolean, row: NdArray) => {
     throw RangeError("Row must have 2^n elements.");
   }
 
-  const range = [...Array(N).keys()];
+  const range = Array.from(Array(N).keys());
 
   const x = range.map((i) => row.get(i) - 128);
 
@@ -62,7 +62,7 @@ const F = (inverse: boolean, chunk: NdArray) => {
     throw RangeError("Chunk must be 8x8 elements.");
   }
 
-  const range = [...Array(8).keys()];
+  const range = Array.from(Array(8).keys());
 
   const f = range.map((x) => range.map((y) => chunk.get(x, y) - 128));
 

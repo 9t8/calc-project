@@ -54,7 +54,11 @@ const Interface = () => {
       <br />
       {img ? (
         <>
-          <Image src={URL.createObjectURL(img)} duration={0} />
+          <Image
+            src={URL.createObjectURL(img)}
+            alt="input preview"
+            duration={0}
+          />
           <br />
           <div>
             <Button
@@ -67,12 +71,14 @@ const Interface = () => {
           </div>
           {out ? (
             <>
-              <p>Processed:</p> <Image src={out} duration={0} />
+              <p>Processed:</p>
+              <Image src={out} alt="processed image" duration={0} />
             </>
           ) : null}
           {out2 ? (
             <>
-              <p>Restored:</p> <Image src={out2} duration={0} />
+              <p>Restored:</p>
+              <Image src={out2} alt="restored image" duration={0} />
             </>
           ) : null}
         </>
