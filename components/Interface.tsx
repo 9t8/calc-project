@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import React, { useEffect } from "react";
 import { MuiFileInput } from "mui-file-input";
-import Image from "mui-image";
 
 import worker from "@/lib/worker";
 
@@ -65,7 +65,9 @@ const Interface = () => {
           <Image
             src={URL.createObjectURL(img)}
             alt="input preview"
-            duration={0}
+            width={0}
+            height={0}
+            style={{ width: "100%", height: "auto" }}
           />
           <br />
           <div>
@@ -76,13 +78,25 @@ const Interface = () => {
           {out ? (
             <>
               <p>Processed:</p>
-              <Image src={out} alt="processed image" duration={0} />
+              <Image
+                src={out}
+                alt="processed image"
+                width={0}
+                height={0}
+                style={{ width: "100%", height: "auto" }}
+              />
             </>
           ) : null}
           {out2 ? (
             <>
               <p>Restored:</p>
-              <Image src={out2} alt="restored image" duration={0} />
+              <Image
+                src={out2}
+                alt="restored image"
+                width={0}
+                height={0}
+                style={{ width: "100%", height: "auto" }}
+              />
             </>
           ) : null}
         </>
