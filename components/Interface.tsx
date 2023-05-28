@@ -22,7 +22,7 @@ const Interface = () => {
   const loadExample = (src: string) => async () =>
     setImg(new File([await (await fetch(src)).blob()], src));
 
-  const handleClick = async () => {
+  const handleClick = (method: "row" | "jpg") => async () => {
     if (!img) {
       alert("Please select an image.");
       return;
@@ -32,9 +32,9 @@ const Interface = () => {
     clearOutput();
 
     try {
-      const outUrl = await worker(URL.createObjectURL(img), "jpg", false);
+      const outUrl = await worker(URL.createObjectURL(img), method, false);
       setOut(outUrl);
-      setOut2(await worker(outUrl, "jpg", true));
+      setOut2(await worker(outUrl, method, true));
     } catch (e) {
       alert(e);
     }
@@ -71,16 +71,19 @@ const Interface = () => {
           />
           <br />
           <div>
-            <button onClick={handleClick} disabled={loading}>
-              Do Stuff
+            <button onClick={handleClick("jpg")} disabled={loading}>
+              2D JPG-Style Transform
+            </button>{" "}
+            <button onClick={handleClick("row")} disabled={loading}>
+              1D Row-by-Row Transform (Slow!)
             </button>
           </div>
           {out ? (
             <>
-              <p>Processed:</p>
+              <p>Transformed:</p>
               <Image
                 src={out}
-                alt="processed image"
+                alt="transformed image"
                 width={0}
                 height={0}
                 style={{ width: "100%", height: "auto" }}
