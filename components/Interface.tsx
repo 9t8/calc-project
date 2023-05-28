@@ -32,9 +32,9 @@ const Interface = () => {
     clearOutput();
 
     try {
-      const outUrl = await worker(URL.createObjectURL(img), "row", false);
+      const outUrl = await worker(URL.createObjectURL(img), "jpg", false);
       setOut(outUrl);
-      setOut2(await worker(outUrl, "row", true));
+      setOut2(await worker(outUrl, "jpg", true));
     } catch (e) {
       alert(e);
     }
