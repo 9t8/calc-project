@@ -48,14 +48,21 @@ const Interface = () => {
           value={img}
           onChange={setImg}
           placeholder="Select a file or choose an example."
+          disabled={loading}
         />
       </div>
       <br />
       <div>
-        <button onClick={loadExample("black.png")}>8x8 Black</button>{" "}
-        <button onClick={loadExample("white.png")}>8x8 White</button>{" "}
-        <button onClick={loadExample("earth.png")}>512x256 Colored</button>{" "}
-        <button onClick={loadExample("soldiers.png")}>
+        <button onClick={loadExample("black.png")} disabled={loading}>
+          8x8 Black
+        </button>{" "}
+        <button onClick={loadExample("white.png")} disabled={loading}>
+          8x8 White
+        </button>{" "}
+        <button onClick={loadExample("earth.png")} disabled={loading}>
+          512x256 Colored
+        </button>{" "}
+        <button onClick={loadExample("soldiers.png")} disabled={loading}>
           1024x1024 Grayscale
         </button>
       </div>
