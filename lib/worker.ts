@@ -1,7 +1,7 @@
 import type { NdArray } from "ndarray";
 import { getPixels, savePixels } from "ndarray-pixels";
 
-import { clamp, rgbToYcc, yccToRgb } from "@/lib/utils";
+import { clamp, rgbToYcc, verifyImg, yccToRgb } from "@/lib/utils";
 
 const C = (N: number) => (N === 0 ? Math.SQRT1_2 : 1);
 
@@ -100,9 +100,7 @@ const F = (inverse: boolean, chunk: NdArray) => {
 };
 
 const processImg = (method: "row" | "jpg", inverse: boolean, img: NdArray) => {
-  if (img.dimension !== 3) {
-    throw RangeError("Image must have 3 dimensions (not be animated).");
-  }
+  verifyImg(img);
 
   for (let channel = 0; channel < 3; ++channel) {
     const mono = img.pick(null, null, channel);
