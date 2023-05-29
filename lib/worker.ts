@@ -12,10 +12,6 @@ const orthoDct = (inverse: boolean, row: NdArray) => {
 
   const N = row.shape[0]!;
 
-  if (Math.log2(N) % 1 !== 0) {
-    throw RangeError("Row must have 2^n elements.");
-  }
-
   const range = Array.from(Array(N).keys());
 
   const x = range.map((i) => row.get(i) - 128);
