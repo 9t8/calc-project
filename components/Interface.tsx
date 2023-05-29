@@ -6,7 +6,7 @@ import { MuiFileInput } from "mui-file-input";
 
 import worker from "@/lib/worker";
 
-const Interface = () => {
+export default function Interface() {
   const [img, setImg] = React.useState<File | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [out, setOut] = React.useState("");
@@ -113,6 +113,4 @@ const Interface = () => {
       ) : null}
     </>
   );
-};
-
-export default Interface;
+}
