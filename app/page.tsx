@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <h1>Calc Project</h1>
-      <p>Your browser may freeze.</p>
+      <p>Warning: your browser tab may freeze.</p>
       <Interface />
     </main>
   );
