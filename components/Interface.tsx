@@ -76,7 +76,6 @@ export default function Interface() {
             height={0}
             style={{ width: "100%", height: "auto" }}
           />
-          <p>Warning: your browser tab may freeze.</p>
           <div>
             <button onClick={handleClick("jpg")} disabled={loading}>
               2D JPG-Style Transform
@@ -85,6 +84,7 @@ export default function Interface() {
               1D Row-by-Row Transform (Slow!)
             </button>
           </div>
+          <p>Warning: your browser tab may freeze.</p>
           {out ? (
             <>
               <p>Transformed:</p>
