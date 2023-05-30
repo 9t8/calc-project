@@ -90,7 +90,7 @@ export default function Interface() {
               <p>Transformed:</p>
               <Image
                 src={out}
-                alt="transformed image"
+                alt="transformed"
                 width={0}
                 height={0}
                 style={{ width: "100%", height: "auto" }}
@@ -102,7 +102,7 @@ export default function Interface() {
               <p>Restored:</p>
               <Image
                 src={out2}
-                alt="restored image"
+                alt="restored"
                 width={0}
                 height={0}
                 style={{ width: "100%", height: "auto" }}
