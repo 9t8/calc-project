@@ -76,7 +76,7 @@ export default function Interface() {
             height={0}
             style={{ width: "100%", height: "auto" }}
           />
-          <br />
+          <p>Warning: your browser tab may freeze.</p>
           <div>
             <button onClick={handleClick("jpg")} disabled={loading}>
               2D JPG-Style Transform
