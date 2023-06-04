@@ -66,7 +66,7 @@ export default function Interface() {
           1024x1024 Grayscale
         </button>
       </div>
-      {img ? (
+      {img && (
         <>
           <br />
           <Image
@@ -85,7 +85,7 @@ export default function Interface() {
             </button>
           </div>
           <p>Warning: your browser tab may freeze.</p>
-          {out ? (
+          {out && (
             <>
               <p>Transformed:</p>
               <Image
@@ -96,8 +96,8 @@ export default function Interface() {
                 style={{ width: "100%", height: "auto" }}
               />
             </>
-          ) : null}
-          {out2 ? (
+          )}
+          {out2 && (
             <>
               <p>Restored:</p>
               <Image
@@ -108,9 +108,9 @@ export default function Interface() {
                 style={{ width: "100%", height: "auto" }}
               />
             </>
-          ) : null}
+          )}
         </>
-      ) : null}
+      )}
     </>
   );
 }
