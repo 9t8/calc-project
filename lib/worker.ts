@@ -129,7 +129,7 @@ const worker = async (
   inverse: boolean
 ) => {
   // img: Uint8[x-coord][y-coord][RGBA]
-  const img = await getPixels(data);
+  const img = await getPixels(data, "");
   if (!inverse) {
     rgbToYcc(img);
   }
