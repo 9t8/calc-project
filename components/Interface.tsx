@@ -44,15 +44,6 @@ export default function Interface() {
   return (
     <>
       <div>
-        <MuiFileInput
-          value={img}
-          onChange={setImg}
-          placeholder="Select a file or choose an example."
-          disabled={loading}
-        />
-      </div>
-      <br />
-      <div>
         <button onClick={loadExample("black.png")} disabled={loading}>
           8x8 Black
         </button>{" "}
@@ -65,6 +56,15 @@ export default function Interface() {
         <button onClick={loadExample("soldiers.png")} disabled={loading}>
           1024x1024 Grayscale
         </button>
+      </div>
+      <br />
+      <div>
+        <MuiFileInput
+          value={img}
+          onChange={setImg}
+          placeholder="Select a file or choose an example."
+          disabled={loading}
+        />
       </div>
       {img && (
         <>
