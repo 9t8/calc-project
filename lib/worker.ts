@@ -124,12 +124,12 @@ const processImg = (method: "row" | "jpg", inverse: boolean, img: NdArray) => {
 };
 
 const worker = async (
-  imgUri: string | Uint8Array,
+  data: Uint8Array,
   method: "row" | "jpg",
   inverse: boolean
 ) => {
   // img: Uint8[x-coord][y-coord][RGBA]
-  const img = await getPixels(imgUri);
+  const img = await getPixels(data);
   if (!inverse) {
     rgbToYcc(img);
   }
@@ -137,7 +137,7 @@ const worker = async (
   if (inverse) {
     yccToRgb(img);
   }
-  return URL.createObjectURL(new Blob([await savePixels(img, "png")]));
+  return savePixels(img, "png");
 };
 
 export default worker;

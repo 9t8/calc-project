@@ -32,12 +32,21 @@ export default function Interface() {
     clearOutput();
 
     try {
-      const outUrl = await worker(URL.createObjectURL(img), method, false);
-      setOut(outUrl);
-      setOut2(await worker(outUrl, method, true));
+      const arr = await worker(
+        new Uint8Array(await img.arrayBuffer()),
+        method,
+        false
+      );
+
+      setOut(URL.createObjectURL(new Blob([arr])));
+
+      const arr2 = await worker(arr, method, true);
+
+      setOut2(URL.createObjectURL(new Blob([arr2])));
     } catch (e) {
       alert(e);
     }
+
     setLoading(false);
   };
 
