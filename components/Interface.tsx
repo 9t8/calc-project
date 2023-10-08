@@ -60,7 +60,7 @@ export default function Interface() {
           8x8 White
         </button>{" "}
         <button onClick={loadExample("earth.png")} disabled={loading}>
-          512x256 Colored
+          512x256 Color
         </button>{" "}
         <button onClick={loadExample("soldiers.png")} disabled={loading}>
           1024x1024 Grayscale
@@ -84,7 +84,7 @@ export default function Interface() {
               1D Row-by-Row Transform (Slow!)
             </button>
           </div>
-          <p>Warning: your browser tab may freeze.</p>
+          <p>Warning: this webpage may freeze.</p>
           {out && (
             <>
               <p>Transformed:</p>
