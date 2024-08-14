@@ -10,18 +10,18 @@
   },
   "dependencies": {
     "@types/node": "^20.8.3",
-    "@types/react": "^18.2.25",
-    "@types/react-dom": "^18.2.11",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "eslint": "^8.51.0",
     "eslint-config-next": "^13.5.4",
     "mui-file-input": "^3.0.2",
     "ndarray-pixels": "^3.0.4",
     "next": "^13.5.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "^5.2.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@types/ndarray": "^1.0.12"
+    "@types/ndarray": "^1.0.14"
   }
 }
