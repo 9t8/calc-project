@@ -93,7 +93,7 @@ export default function Interface() {
               1D Row-by-Row Transform (Slow)
             </button>
           </div>
-          <p>This webpage may freeze.</p>
+          <p>The webpage may freeze.</p>
           {out && (
             <>
               <p>Transformed:</p>
