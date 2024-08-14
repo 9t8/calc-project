@@ -90,10 +90,10 @@ export default function Interface() {
               2D JPG-Style Transform
             </button>{" "}
             <button onClick={handleClick("row")} disabled={loading}>
-              1D Row-by-Row Transform (Slow!)
+              1D Row-by-Row Transform (Slow)
             </button>
           </div>
-          <p>Warning: this webpage may freeze.</p>
+          <p>This webpage may freeze.</p>
           {out && (
             <>
               <p>Transformed:</p>
